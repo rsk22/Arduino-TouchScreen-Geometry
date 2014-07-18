@@ -1,18 +1,16 @@
-/*
-  TouchScreenGeometry.h - Library for creating geometries shapes for the Seeed Studio TFT touch screen.
-  14 June 2014: Created by Richard Kirkpatrick
-  Revisions:
-    -@date 14 June 2014:
-        - Richard Kirkpatrick: Added Triangle class.
-    -@date 16 June 2014:
-        - Richard Kirkpatrick: Added Point2D and Point2DArray classes.
+/**
+  @file TouchScreenGeometry.h
+  @brief Library for creating geometries shapes for the Seeed Studio TFT touch screen.
+  @author Richard Kirkpatrick
+  @date 17 July 2014
 
-  Copyright: This material is influenced by material from MIT OpenCourseWare which operates under a
+  Copyright: This material is heavility influenced by material from MIT OpenCourseWare which operates under a
   Creative Common License.  For more info, visit http://ocw.mit.edu/terms/
 
-  A lot of the material (RectangleArray, CircleArray, ...) was created by myself.  Please feel free to use this work
-  as you wish but PLEASE give credit to MIT OpenCourseWare and myself when using this work.
+  All other material (RectangleArray, CircleArray, draw() and fill() methods ...) was created by myself.  Please follow the OpenSource guidelines and PLEASE
+  give credit to MIT OpenCourseWare and myself when using this work.
 */
+
 
 #include "Arduino.h"
 #include "TouchScreenGeometry.h"

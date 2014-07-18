@@ -1,0 +1,194 @@
+\hypertarget{class_polygon}{\section{Polygon Class Reference}
+\label{class_polygon}\index{Polygon@{Polygon}}
+}
+
+
+Base class for drawing \hyperlink{class_polygon}{Polygon} objects to the T\+F\+T touch screen.  
+
+
+
+
+{\ttfamily \#include $<$Touch\+Screen\+Geometry.\+h$>$}
+
+Inheritance diagram for Polygon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_polygon}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_polygon_afb51d4234c64281603f8b11ad23d964e}{Polygon} (const \hyperlink{class_point2_d_array}{Point2\+D\+Array} \&pa, const unsigned int my\+Border\+Color=0xffff, const unsigned int my\+Fill\+Color=0x0000)
+\begin{DoxyCompactList}\small\item\em Constructor for the \hyperlink{class_polygon}{Polygon} class. \end{DoxyCompactList}\item 
+\hyperlink{class_polygon_a86dc9c4f03f9874f3b1a017b913d50bb}{Polygon} (const \hyperlink{class_point2_d}{Point2\+D} \hyperlink{class_polygon_a3f17a85c09bd04138f22ae31d18b6b4d}{points}\mbox{[}$\,$\mbox{]}, const int num\+Points, const unsigned int my\+Border\+Color=0xffff, const unsigned int my\+Fill\+Color=0x0000)
+\begin{DoxyCompactList}\small\item\em Parameter constructor for the the \hyperlink{class_polygon}{Polygon} class. \end{DoxyCompactList}\item 
+\hypertarget{class_polygon_ace39c67107966db12e13a183f496c3b0}{\hyperlink{class_polygon_ace39c67107966db12e13a183f496c3b0}{$\sim$\+Polygon} ()}\label{class_polygon_ace39c67107966db12e13a183f496c3b0}
+
+\begin{DoxyCompactList}\small\item\em Destructor for the \hyperlink{class_polygon}{Polygon} class. Decrements num\+Polygons and erases the drawn \hyperlink{class_polygon}{Polygon}. \end{DoxyCompactList}\item 
+\hypertarget{class_polygon_a050f5dfd57856852a82a9c7912692d02}{int \hyperlink{class_polygon_a050f5dfd57856852a82a9c7912692d02}{get\+Num\+Sides} ()}\label{class_polygon_a050f5dfd57856852a82a9c7912692d02}
+
+\begin{DoxyCompactList}\small\item\em Gets the number of sides of the \hyperlink{class_polygon}{Polygon} instance. \end{DoxyCompactList}\item 
+\hypertarget{class_polygon_a807c06d03f4943e9c8e63a5848ebc5c2}{const \hyperlink{class_point2_d_array}{Point2\+D\+Array} $\ast$ \hyperlink{class_polygon_a807c06d03f4943e9c8e63a5848ebc5c2}{get\+Points} () const }\label{class_polygon_a807c06d03f4943e9c8e63a5848ebc5c2}
+
+\begin{DoxyCompactList}\small\item\em Returns an unmodifiable pointer to the Point\+Array of the \hyperlink{class_polygon}{Polygon}. \end{DoxyCompactList}\item 
+void \hyperlink{class_polygon_a91e2048df838eefbf1b291cff13fa540}{set\+Border\+Color} (unsigned int my\+Border\+Color=0xffff)
+\begin{DoxyCompactList}\small\item\em Sets the border color of the geometry. \end{DoxyCompactList}\item 
+void \hyperlink{class_polygon_ad7caa8108c50e0caf41f286660bbf011}{set\+Fill\+Color} (unsigned int=0x0000)
+\begin{DoxyCompactList}\small\item\em Sets the fill color of the geometry. N\+O\+T\+E\+: This needs upgraded in future. \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{class_polygon_a89f6cf0b0bc01911b959ada782f9dfd8}{get\+Border\+Color} ()
+\begin{DoxyCompactList}\small\item\em Gets the border color of the geometry. \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{class_polygon_a1213dc7e01a5c9fc66f0b7190c8b02b6}{get\+Fill\+Color} ()
+\begin{DoxyCompactList}\small\item\em Gets the fill color of the geometry. \end{DoxyCompactList}\item 
+\hypertarget{class_polygon_a17428a7d7dff4653c905b91020a9f803}{void \hyperlink{class_polygon_a17428a7d7dff4653c905b91020a9f803}{draw} ()}\label{class_polygon_a17428a7d7dff4653c905b91020a9f803}
+
+\begin{DoxyCompactList}\small\item\em Draws the \hyperlink{class_polygon}{Polygon} using the T\+F\+T library. \end{DoxyCompactList}\item 
+\hypertarget{class_polygon_aaa6f282cafd882068fae7018741aabaf}{void \hyperlink{class_polygon_aaa6f282cafd882068fae7018741aabaf}{fill} ()}\label{class_polygon_aaa6f282cafd882068fae7018741aabaf}
+
+\begin{DoxyCompactList}\small\item\em Fills the \hyperlink{class_polygon}{Polygon} using the T\+F\+T library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_polygon_a1767ac5482d2bd85e8826aacf7214ee5}{static int \hyperlink{class_polygon_a1767ac5482d2bd85e8826aacf7214ee5}{get\+Num\+Polygons} ()}\label{class_polygon_a1767ac5482d2bd85e8826aacf7214ee5}
+
+\begin{DoxyCompactList}\small\item\em Getter method for the number of polygons that have been created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_polygon_a3f17a85c09bd04138f22ae31d18b6b4d}{\hyperlink{class_point2_d_array}{Point2\+D\+Array} \hyperlink{class_polygon_a3f17a85c09bd04138f22ae31d18b6b4d}{points}}\label{class_polygon_a3f17a85c09bd04138f22ae31d18b6b4d}
+
+\begin{DoxyCompactList}\small\item\em Keeps track of the number of \hyperlink{class_polygon}{Polygon} objects. \end{DoxyCompactList}\item 
+\hypertarget{class_polygon_ac7e55927e6dda8a8ef0a9bf937564015}{unsigned int \hyperlink{class_polygon_ac7e55927e6dda8a8ef0a9bf937564015}{border\+Color}}\label{class_polygon_ac7e55927e6dda8a8ef0a9bf937564015}
+
+\begin{DoxyCompactList}\small\item\em Vertices for the \hyperlink{class_polygon}{Polygon} instance. \end{DoxyCompactList}\item 
+\hypertarget{class_polygon_a8785a91a1462e4fd02cff574e51f3948}{unsigned int \hyperlink{class_polygon_a8785a91a1462e4fd02cff574e51f3948}{fill\+Color}}\label{class_polygon_a8785a91a1462e4fd02cff574e51f3948}
+
+\begin{DoxyCompactList}\small\item\em Border color of the \hyperlink{class_polygon}{Polygon}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_polygon_a2dc44114b25b8ee2351b3253ccf66376}{static int {\bfseries num\+Polygons} = 0}\label{class_polygon_a2dc44114b25b8ee2351b3253ccf66376}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base class for drawing \hyperlink{class_polygon}{Polygon} objects to the T\+F\+T touch screen. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_polygon_afb51d4234c64281603f8b11ad23d964e}{\index{Polygon@{Polygon}!Polygon@{Polygon}}
+\index{Polygon@{Polygon}!Polygon@{Polygon}}
+\subsubsection[{Polygon}]{\setlength{\rightskip}{0pt plus 5cm}Polygon\+::\+Polygon (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point2\+D\+Array} \&}]{pa, }
+\item[{const unsigned int}]{my\+Border\+Color = {\ttfamily 0xffff}, }
+\item[{const unsigned int}]{my\+Fill\+Color = {\ttfamily 0x0000}}
+\end{DoxyParamCaption}
+)}}\label{class_polygon_afb51d4234c64281603f8b11ad23d964e}
+
+
+Constructor for the \hyperlink{class_polygon}{Polygon} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \&pa} & The \hyperlink{class_point2_d_array}{Point2\+D\+Array} that defines the vertices of the \hyperlink{class_polygon}{Polygon}. \\
+\hline
+{\em my\+Border\+Color} & The border color of the rectangle. Default is W\+H\+I\+T\+E. \\
+\hline
+{\em my\+Fill\+Color} & The fill color of the rectangle. Default is B\+L\+A\+C\+K. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_polygon_a86dc9c4f03f9874f3b1a017b913d50bb}{\index{Polygon@{Polygon}!Polygon@{Polygon}}
+\index{Polygon@{Polygon}!Polygon@{Polygon}}
+\subsubsection[{Polygon}]{\setlength{\rightskip}{0pt plus 5cm}Polygon\+::\+Polygon (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point2\+D}}]{points\mbox{[}$\,$\mbox{]}, }
+\item[{const int}]{num\+Points, }
+\item[{const unsigned int}]{my\+Border\+Color = {\ttfamily 0xffff}, }
+\item[{const unsigned int}]{my\+Fill\+Color = {\ttfamily 0x0000}}
+\end{DoxyParamCaption}
+)}}\label{class_polygon_a86dc9c4f03f9874f3b1a017b913d50bb}
+
+
+Parameter constructor for the the \hyperlink{class_polygon}{Polygon} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points\mbox{[}$\,$\mbox{]}} & Array of \hyperlink{class_point2_d}{Point2\+D} objects that define the vertices of the \hyperlink{class_polygon}{Polygon}. \\
+\hline
+{\em num\+Points} & The number of vertices of the \hyperlink{class_polygon}{Polygon}. \\
+\hline
+{\em my\+Border\+Color} & The border color of the rectangle. Default is W\+H\+I\+T\+E. \\
+\hline
+{\em my\+Fill\+Color} & The fill color of the rectangle. Default is B\+L\+A\+C\+K. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_polygon_a89f6cf0b0bc01911b959ada782f9dfd8}{\index{Polygon@{Polygon}!get\+Border\+Color@{get\+Border\+Color}}
+\index{get\+Border\+Color@{get\+Border\+Color}!Polygon@{Polygon}}
+\subsubsection[{get\+Border\+Color}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int Polygon\+::get\+Border\+Color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_polygon_a89f6cf0b0bc01911b959ada782f9dfd8}
+
+
+Gets the border color of the geometry. 
+
+\begin{DoxyReturn}{Returns}
+Border color of the geometry. 
+\end{DoxyReturn}
+\hypertarget{class_polygon_a1213dc7e01a5c9fc66f0b7190c8b02b6}{\index{Polygon@{Polygon}!get\+Fill\+Color@{get\+Fill\+Color}}
+\index{get\+Fill\+Color@{get\+Fill\+Color}!Polygon@{Polygon}}
+\subsubsection[{get\+Fill\+Color}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int Polygon\+::get\+Fill\+Color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_polygon_a1213dc7e01a5c9fc66f0b7190c8b02b6}
+
+
+Gets the fill color of the geometry. 
+
+\begin{DoxyReturn}{Returns}
+Fill color of the geometry. 
+\end{DoxyReturn}
+\hypertarget{class_polygon_a91e2048df838eefbf1b291cff13fa540}{\index{Polygon@{Polygon}!set\+Border\+Color@{set\+Border\+Color}}
+\index{set\+Border\+Color@{set\+Border\+Color}!Polygon@{Polygon}}
+\subsubsection[{set\+Border\+Color}]{\setlength{\rightskip}{0pt plus 5cm}void Polygon\+::set\+Border\+Color (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{my\+Border\+Color = {\ttfamily 0xffff}}
+\end{DoxyParamCaption}
+)}}\label{class_polygon_a91e2048df838eefbf1b291cff13fa540}
+
+
+Sets the border color of the geometry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Border\+Color} & The border color of the geometry. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_polygon_ad7caa8108c50e0caf41f286660bbf011}{\index{Polygon@{Polygon}!set\+Fill\+Color@{set\+Fill\+Color}}
+\index{set\+Fill\+Color@{set\+Fill\+Color}!Polygon@{Polygon}}
+\subsubsection[{set\+Fill\+Color}]{\setlength{\rightskip}{0pt plus 5cm}void Polygon\+::set\+Fill\+Color (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{my\+Fill\+Color = {\ttfamily 0x0000}}
+\end{DoxyParamCaption}
+)}}\label{class_polygon_ad7caa8108c50e0caf41f286660bbf011}
+
+
+Sets the fill color of the geometry. N\+O\+T\+E\+: This needs upgraded in future. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Fill\+Color} & The fill color of the geometry. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_touch_screen_geometry_8h}{Touch\+Screen\+Geometry.\+h}\item 
+Touch\+Screen\+Geometry.\+cpp\end{DoxyCompactItemize}
