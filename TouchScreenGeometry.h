@@ -62,7 +62,6 @@ private:
     int x, y; // x and y coordinates of the Point2D instance
 };
 
-
 /*
 ----------------------------------------------------------------
                          Point2DArray Class
