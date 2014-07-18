@@ -1,17 +1,15 @@
-/*! \mainpage My Personal Index Page
+/*! \mainpage Main Page
  *
  * \section intro_sec Introduction
- * Author: Richard Kirkpatrick
+ * \brief Arduino library for creating geometries shapes for the Seeed Studio TFT touch screen (Version 1).
+ * \author Richard Kirkpatrick
+ * \date 17 July 2014
+ * \copyright GNU Public License.
  *
  * This is the Arduino library for creating geometries shapes for the Seeed Studio TFT touch screen (Version 1).
  * The user can create polygons, rectangles, triangle and circles.
  * See the Wiki documentation page for more info!
  *
- *  Copyright: This material is heavility influenced by material from MIT OpenCourseWare which operates under a
- *  Creative Common License.  For more info, visit http://ocw.mit.edu/terms/
- *
- *  All other material (RectangleArray, CircleArray, draw() and fill() methods ...) was created by myself.  Please follow the OpenSource guidelines and PLEASE
- *  give credit to MIT OpenCourseWare and myself when using this work..
  */
 
 #ifndef TouchScreenGeometry_h
