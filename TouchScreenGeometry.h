@@ -61,7 +61,7 @@ class Point2D {
     void setY(const int myY);
 
 private:
-    int x, y; ///< x and y coordinates of the Point2D instance
+    int x, y; // x and y coordinates of the Point2D instance
 };
 
 
@@ -145,7 +145,7 @@ class Point2DArray {
     */
     void resize(int size);
 
-    int size; ///< Size of the array
+    int size; // Size of the array
     Point2D *points;
 };
 
@@ -220,10 +220,10 @@ class Polygon {
     void fill();
 
   protected:
-    static int numPolygons; ///< Keeps track of the number of Polygon objects
-    Point2DArray points; ///< Vertices for the Polygon instance
+    static int numPolygons; // Keeps track of the number of Polygon objects
+    Point2DArray points; // Vertices for the Polygon instance
     unsigned int borderColor;
-    unsigned int fillColor; ///< Note: Future upgrade
+    unsigned int fillColor; // Note: Future upgrade
 };
 
 
@@ -318,9 +318,6 @@ class Rectangle : public Polygon {
     @param [in] factor The amount the rectangle is to be resized.
     */
     void scale(const float factor);
-
- private:
-     Point2D vertices[4];
 };
 
 /*
@@ -424,8 +421,8 @@ class Circle {
     void scale(const float factor);
 
  private:
-    Point2D centroid; ///< The center of the circle.
-    int radius; ///< The radius of the circle
+    Point2D centroid; // The center of the circle.
+    int radius; // The radius of the circle
     unsigned int borderColor;
     unsigned int fillColor;
 };

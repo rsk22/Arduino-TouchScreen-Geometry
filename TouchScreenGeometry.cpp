@@ -200,7 +200,7 @@ const unsigned int Polygon::getFillColor()
 
 void Polygon::draw()
 {
-    ///< Draw each segment of the polygon
+    // Draw each segment of the polygon
     for (int i = 0; i < getNumSides() - 1; i++) {
         Tft.drawLine(points.get(i)->getX(), points.get(i)->getY(), points.get(i+1)->getX(), points.get(i+1)->getY(), borderColor);
     }
@@ -215,7 +215,7 @@ void Polygon::draw()
 
 Point2D *updateVertices(const Point2D &a, const Point2D &b, const Point2D &c, const Point2D &d = Point2D(0, 0))
 {
-    Point2D vertices[3];
+    Point2D vertices[4];
     vertices[0] = a;
     vertices[1] = b;
     vertices[2] = c;
@@ -302,32 +302,32 @@ void Rectangle::fill()
 
 void Rectangle::move(const int dx, const int dy)
 {
-    unsigned int previousBorderColor = borderColor; ///< Saves the border color.
-    unsigned int previousFillColor = fillColor; ///< Saves the fill color
-    setBorderColor(0x0000); ///< Sets the border color to black.
-    setFillColor(0x0000); ///< Sets the fill color to black
-    draw(); ///< Erases the rectangle on the screen.
-    fill(); ///< Erases the rectangle on the screen
-    setUpperLeft(getXStart() + dx, getYStart() + dy); ///< Translate the x-coordinates of the rectangle
-    setBorderColor(previousBorderColor); ///< Sets the border color back to its original state.
-    setFillColor(previousFillColor); ///< Sets the fill color back to its original state.
-    draw(); ///< Redraws the rectangle at its translated coordinates.
-    fill(); ///< Redraws the rectangle at its translated coordinates.
+    unsigned int previousBorderColor = borderColor; // Saves the border color.
+    unsigned int previousFillColor = fillColor; // Saves the fill color
+    setBorderColor(0x0000); // Sets the border color to black.
+    setFillColor(0x0000); // Sets the fill color to black
+    draw(); // Erases the rectangle on the screen.
+    fill(); // Erases the rectangle on the screen
+    setUpperLeft(getXStart() + dx, getYStart() + dy); // Translate the x-coordinates of the rectangle
+    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
+    setFillColor(previousFillColor); // Sets the fill color back to its original state.
+    draw(); // Redraws the rectangle at its translated coordinates.
+    fill(); // Redraws the rectangle at its translated coordinates.
 }
 
 void Rectangle::scale(const float factor)
 {
-    unsigned int previousBorderColor = borderColor; ///< Saves the border color.
-    unsigned int previousFillColor = fillColor; ///< Saves the fill color
-    setBorderColor(0x0000); ///< Sets the border color to black.
-    setFillColor(0x0000); ///< Sets the fill color to black
-    draw(); ///< Erases the rectangle on the screen.
-    fill(); ///< Erases the rectangle on the screen
-    setSize(int(factor * getWidth()), int(factor * getHeight())); ///< Resizes the rectangle.
-    setBorderColor(previousBorderColor); ///< Sets the border color back to its original state.
-    setFillColor(previousFillColor); ///< Sets the fill color back to its original state.
-    draw(); ///< Redraws the rectangle at its translated coordinates.
-    fill(); ///< Redraws the rectangle at its translated coordinates.
+    unsigned int previousBorderColor = borderColor; // Saves the border color.
+    unsigned int previousFillColor = fillColor; // Saves the fill color
+    setBorderColor(0x0000); // Sets the border color to black.
+    setFillColor(0x0000); // Sets the fill color to black
+    draw(); // Erases the rectangle on the screen.
+    fill(); // Erases the rectangle on the screen
+    setSize(int(factor * getWidth()), int(factor * getHeight())); // Resizes the rectangle.
+    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
+    setFillColor(previousFillColor); // Sets the fill color back to its original state.
+    draw(); // Redraws the rectangle at its translated coordinates.
+    fill(); // Redraws the rectangle at its translated coordinates.
 }
 
 
@@ -406,33 +406,33 @@ void Circle::fill()
 
 void Circle::move(const int dx, const int dy)
 {
-    unsigned int previousBorderColor = borderColor; ///< Saves the border color.
-    unsigned int previousFillColor = fillColor; ///< Saves the fill color
-    setBorderColor(0x0000); ///< Sets the border color to black.
-    setFillColor(0x0000); ///< Sets the fill color to black
-    draw(); ///< Erases the circle on the screen.
-    fill(); ///< Erases the rectangle on the screen
+    unsigned int previousBorderColor = borderColor; // Saves the border color.
+    unsigned int previousFillColor = fillColor; // Saves the fill color
+    setBorderColor(0x0000); // Sets the border color to black.
+    setFillColor(0x0000); // Sets the fill color to black
+    draw(); // Erases the circle on the screen.
+    fill(); // Erases the rectangle on the screen
     centroid.setX(centroid.getX() + dx);
     centroid.setY(centroid.getY() - dy);
-    setBorderColor(previousBorderColor); ///< Sets the border color back to its original state.
-    setFillColor(previousFillColor); ///< Sets the fill color back to its original state.
-    draw(); ///< Redraws the circle at its translated coordinates.
-    fill(); ///< Redraws the rectangle at its translated coordinates.
+    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
+    setFillColor(previousFillColor); // Sets the fill color back to its original state.
+    draw(); // Redraws the circle at its translated coordinates.
+    fill(); // Redraws the rectangle at its translated coordinates.
 }
 
 void Circle::scale(const float factor)
 {
-    unsigned int previousBorderColor = borderColor; ///< Saves the border color.
-    unsigned int previousFillColor = fillColor; ///< Saves the fill color
-    setBorderColor(0x0000); ///< Sets the border color to black.
-    setFillColor(0x0000); ///< Sets the fill color to black
-    fill(); ///< Erases the rectangle on the screen
-    draw(); ///< Erases the rectangle on the screen.
-    setRadius(int(factor * radius)); ///< Resizes the rectangle.
-    setBorderColor(previousBorderColor); ///< Sets the border color back to its original state.
-    setFillColor(previousFillColor); ///< Sets the fill color back to its original state.
-    draw(); ///< Redraws the rectangle at its translated coordinates.
-    fill(); ///< Redraws the rectangle at its translated coordinates.
+    unsigned int previousBorderColor = borderColor; // Saves the border color.
+    unsigned int previousFillColor = fillColor; // Saves the fill color
+    setBorderColor(0x0000); // Sets the border color to black.
+    setFillColor(0x0000); // Sets the fill color to black
+    fill(); // Erases the rectangle on the screen
+    draw(); // Erases the rectangle on the screen.
+    setRadius(int(factor * radius)); // Resizes the rectangle.
+    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
+    setFillColor(previousFillColor); // Sets the fill color back to its original state.
+    draw(); // Redraws the rectangle at its translated coordinates.
+    fill(); // Redraws the rectangle at its translated coordinates.
 }
 
 
