@@ -216,6 +216,9 @@ class Polygon {
     ///@brief Fills the Polygon using the TFT library
     void fill();
 
+    ///@brief Erases the Polygon
+    void erase();
+
   protected:
     static int numPolygons; /// Keeps track of the number of Polygon objects
     Point2DArray points; /// Vertices for the Polygon instance
@@ -294,6 +297,9 @@ class Rectangle : public Polygon {
     ///@brief Fills the Rectangle using the TFT library
     void fill();
 
+    ///@brief Erases the Circle
+    void erase();
+
     /*!
     @brief Sets the size of the rectangle.  Does no redraw the rectangle.
     @param  myWidth   The width of the rectangle.
@@ -367,13 +373,17 @@ class Circle {
     Circle(const int myXStart, const int myYStart, const int myRadius, const unsigned int myBorderColor = 0xffff, const unsigned int myFillColor = 0x0000);
 
     /*!
+    @brief Resets the centroid for the Circle
+    @param myX     The new center x-coordinate for the Circle.
+    @param myY     The new center y-coordinate for the Circle.
+    */
+    void setCentroid(const int myX, const int myY);
+
+    /*!
     @brief Sets the radius of the circle.  Does NOT redraw the circle.
     @param myRadius The radius of the circle.
     */
     void setRadius(const int myRadius);
-
-    ///@brief Gets the radius of the circle.
-    const int getRadius();
 
     /*!
     @brief Sets the border color of the circle.
@@ -386,6 +396,15 @@ class Circle {
     @param  myFillColor The fill color of the circle. Default is black.
     */
     void setFillColor(unsigned int = 0x0000);
+
+    ///@brief Gets the x-coordinate of the Circle's center
+    const int getXCoord();
+
+    ///@brief Gets the y-coordinate of the Circle's center
+    const int getYCoord();
+
+    ///@brief Gets the radius of the circle.
+    const int getRadius();
 
     ///@brief Gets the border color of the circle.
     const unsigned int getBorderColor();
@@ -401,6 +420,9 @@ class Circle {
 
     ///@brief Uses the Seeed Studio TFT library to fill the circle.
     void fill();
+
+    ///@brief Erases the Circle
+    void erase();
 
     /*!
     @brief Moves the circle at the specified amount.

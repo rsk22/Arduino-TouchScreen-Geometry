@@ -205,6 +205,18 @@ void Polygon::draw()
     Tft.drawLine(points.get(getNumSides()-1)->getX(), points.get(getNumSides()-1)->getY(), points.get(0)->getX(), points.get(0)->getY(), borderColor);
 }
 
+void Polygon::erase()
+{
+    unsigned int previousBorderColor = borderColor; // Saves the border color.
+    //unsigned int previousFillColor = fillColor; // Saves the fill color
+    setBorderColor(0x0000); // Sets the border color to black.
+    //setFillColor(0x0000); // Sets the fill color to black
+    draw(); // Erases the polygon on the screen.
+    //fill(); // Erases the polygon on the screen
+    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
+    //setFillColor(previousFillColor); // Sets the fill color back to its original state.
+}
+
 /*
 ----------------------------------------------------------------
 				  Rectangle Subclass
@@ -298,6 +310,18 @@ void Rectangle::fill()
     Tft.fillRectangle(getXStart() + 1, getYStart() + 1, getWidth() - 1, getHeight() - 1, fillColor);
 }
 
+void Rectangle::erase()
+{
+    unsigned int previousBorderColor = borderColor; // Saves the border color.
+    unsigned int previousFillColor = fillColor; // Saves the fill color
+    setBorderColor(0x0000); // Sets the border color to black.
+    setFillColor(0x0000); // Sets the fill color to black
+    draw(); // Erases the rectangle on the screen.
+    fill(); // Erases the rectangle on the screen
+    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
+    setFillColor(previousFillColor); // Sets the fill color back to its original state.
+}
+
 void Rectangle::move(const int dx, const int dy)
 {
     unsigned int previousBorderColor = borderColor; // Saves the border color.
@@ -327,7 +351,6 @@ void Rectangle::scale(const float factor)
     draw(); // Redraws the rectangle at its translated coordinates.
     fill(); // Redraws the rectangle at its translated coordinates.
 }
-
 
 /*
 ----------------------------------------------------------------
@@ -362,6 +385,12 @@ Circle::Circle(const int myXStart, const int myYStart, const int myRadius, const
     fillColor = myFillColor;
 }
 
+void Circle::setCentroid(const int myX, const int myY)
+{
+    centroid.setX(myX);
+    centroid.setY(myY);
+}
+
 void Circle::setRadius(const int myRadius)
 {
     radius = myRadius;
@@ -370,6 +399,16 @@ void Circle::setRadius(const int myRadius)
 const int Circle::getRadius()
 {
     return radius;
+}
+
+const int Circle::getXCoord()
+{
+    return centroid.getX();
+}
+
+const int Circle::getYCoord()
+{
+    return centroid.getY();
 }
 
 void Circle::setBorderColor(unsigned int myBorderColor )
@@ -402,6 +441,18 @@ void Circle::fill()
     Tft.fillCircle(centroid.getX(), centroid.getY(), radius - 1, fillColor);
 }
 
+void Circle::erase()
+{
+    unsigned int previousBorderColor = borderColor; // Saves the border color.
+    unsigned int previousFillColor = fillColor; // Saves the fill color
+    setBorderColor(0x0000); // Sets the border color to black.
+    setFillColor(0x0000); // Sets the fill color to black
+    draw(); // Erases the rectangle on the screen.
+    fill(); // Erases the rectangle on the screen
+    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
+    setFillColor(previousFillColor); // Sets the fill color back to its original state.
+}
+
 void Circle::move(const int dx, const int dy)
 {
     unsigned int previousBorderColor = borderColor; // Saves the border color.
@@ -409,13 +460,13 @@ void Circle::move(const int dx, const int dy)
     setBorderColor(0x0000); // Sets the border color to black.
     setFillColor(0x0000); // Sets the fill color to black
     draw(); // Erases the circle on the screen.
-    fill(); // Erases the rectangle on the screen
+    fill(); // Erases the Circle on the screen
     centroid.setX(centroid.getX() + dx);
     centroid.setY(centroid.getY() - dy);
     setBorderColor(previousBorderColor); // Sets the border color back to its original state.
     setFillColor(previousFillColor); // Sets the fill color back to its original state.
     draw(); // Redraws the circle at its translated coordinates.
-    fill(); // Redraws the rectangle at its translated coordinates.
+    fill(); // Redraws the Circle at its translated coordinates.
 }
 
 void Circle::scale(const float factor)
@@ -424,13 +475,13 @@ void Circle::scale(const float factor)
     unsigned int previousFillColor = fillColor; // Saves the fill color
     setBorderColor(0x0000); // Sets the border color to black.
     setFillColor(0x0000); // Sets the fill color to black
-    fill(); // Erases the rectangle on the screen
-    draw(); // Erases the rectangle on the screen.
-    setRadius(int(factor * radius)); // Resizes the rectangle.
+    fill(); // Erases the Circle on the screen
+    draw(); // Erases the Circle on the screen.
+    setRadius(int(factor * radius)); // Resizes the Circle.
     setBorderColor(previousBorderColor); // Sets the border color back to its original state.
     setFillColor(previousFillColor); // Sets the fill color back to its original state.
-    draw(); // Redraws the rectangle at its translated coordinates.
-    fill(); // Redraws the rectangle at its translated coordinates.
+    draw(); // Redraws the Circle at its translated coordinates.
+    fill(); // Redraws the Circle at its translated coordinates.
 }
 
 
