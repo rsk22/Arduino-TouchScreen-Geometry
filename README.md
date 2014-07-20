@@ -33,4 +33,11 @@ You may also feel free to resolve them yourself.  Just check with me before you 
 ## Upgrades:
 We become better programmers by always looking for ways to improve our code.  Thus, I will always look for ways to improve this code.  If you have any suggestions for improvement or would like to make improvements yourself, please let me know.
 
+Current planned upgrades are:
+1. Add rotation methods to Polygon class.
+2. Update move methods so that the movement appears more smoother.
+3. Add ellipse class.
+4. Add fill methods to all geometric classes (Polygon, Triangle, etc.).
+
+
 
