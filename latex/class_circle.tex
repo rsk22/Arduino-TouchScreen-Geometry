@@ -17,15 +17,23 @@ The class for drawing circles to the T\+F\+T touch screen.
 \begin{DoxyCompactList}\small\item\em Parameter constructor for the circle class. \end{DoxyCompactList}\item 
 \hyperlink{class_circle_ab7a7dd06732d8519b3a2b14266952858}{Circle} (const int my\+X\+Start, const int my\+Y\+Start, const int my\+Radius, const unsigned int my\+Border\+Color=0xffff, const unsigned int my\+Fill\+Color=0x0000)
 \begin{DoxyCompactList}\small\item\em Parameter constructor for the circle class. \end{DoxyCompactList}\item 
+void \hyperlink{class_circle_a49e587e1199561b3dd30caa68219b845}{set\+Centroid} (const int my\+X, const int my\+Y)
+\begin{DoxyCompactList}\small\item\em Resets the centroid for the \hyperlink{class_circle}{Circle}. \end{DoxyCompactList}\item 
 void \hyperlink{class_circle_a2f81a4869baba24481a710bbd266c395}{set\+Radius} (const int my\+Radius)
 \begin{DoxyCompactList}\small\item\em Sets the radius of the circle. Does N\+O\+T redraw the circle. \end{DoxyCompactList}\item 
-\hypertarget{class_circle_a4fee50b67efc5b5e188e92379140bb42}{const int \hyperlink{class_circle_a4fee50b67efc5b5e188e92379140bb42}{get\+Radius} ()}\label{class_circle_a4fee50b67efc5b5e188e92379140bb42}
-
-\begin{DoxyCompactList}\small\item\em Gets the radius of the circle. \end{DoxyCompactList}\item 
 void \hyperlink{class_circle_a2d0e705f07a4cb6a9d47eb759c73c59f}{set\+Border\+Color} (unsigned int my\+Border\+Color=0xffff)
 \begin{DoxyCompactList}\small\item\em Sets the border color of the circle. \end{DoxyCompactList}\item 
 void \hyperlink{class_circle_ab5f942fd85063fbb4bfc28fc4e700eca}{set\+Fill\+Color} (unsigned int=0x0000)
 \begin{DoxyCompactList}\small\item\em Sets the fill color of the circle. \end{DoxyCompactList}\item 
+\hypertarget{class_circle_a38f435815da3ce2ed7ebfe43c0f8ce58}{const int \hyperlink{class_circle_a38f435815da3ce2ed7ebfe43c0f8ce58}{get\+X\+Coord} ()}\label{class_circle_a38f435815da3ce2ed7ebfe43c0f8ce58}
+
+\begin{DoxyCompactList}\small\item\em Gets the x-\/coordinate of the \hyperlink{class_circle}{Circle}'s center. \end{DoxyCompactList}\item 
+\hypertarget{class_circle_a78f03defad16be82d0f110f6ad2e4f4d}{const int \hyperlink{class_circle_a78f03defad16be82d0f110f6ad2e4f4d}{get\+Y\+Coord} ()}\label{class_circle_a78f03defad16be82d0f110f6ad2e4f4d}
+
+\begin{DoxyCompactList}\small\item\em Gets the y-\/coordinate of the \hyperlink{class_circle}{Circle}'s center. \end{DoxyCompactList}\item 
+\hypertarget{class_circle_a4fee50b67efc5b5e188e92379140bb42}{const int \hyperlink{class_circle_a4fee50b67efc5b5e188e92379140bb42}{get\+Radius} ()}\label{class_circle_a4fee50b67efc5b5e188e92379140bb42}
+
+\begin{DoxyCompactList}\small\item\em Gets the radius of the circle. \end{DoxyCompactList}\item 
 \hypertarget{class_circle_ad6ce91ec588489091a42d02dda0b074a}{const unsigned int \hyperlink{class_circle_ad6ce91ec588489091a42d02dda0b074a}{get\+Border\+Color} ()}\label{class_circle_ad6ce91ec588489091a42d02dda0b074a}
 
 \begin{DoxyCompactList}\small\item\em Gets the border color of the circle. \end{DoxyCompactList}\item 
@@ -37,6 +45,9 @@ const unsigned int \hyperlink{class_circle_a567e34480ed3af231bd019f66ab80fb7}{ge
 \hypertarget{class_circle_af69594749622c501d7a0c65715704e67}{void \hyperlink{class_circle_af69594749622c501d7a0c65715704e67}{fill} ()}\label{class_circle_af69594749622c501d7a0c65715704e67}
 
 \begin{DoxyCompactList}\small\item\em Uses the Seeed Studio T\+F\+T library to fill the circle. \end{DoxyCompactList}\item 
+\hypertarget{class_circle_a9a42b8ca047d6b297b86ae5e3cbdcc53}{void \hyperlink{class_circle_a9a42b8ca047d6b297b86ae5e3cbdcc53}{erase} ()}\label{class_circle_a9a42b8ca047d6b297b86ae5e3cbdcc53}
+
+\begin{DoxyCompactList}\small\item\em Erases the \hyperlink{class_circle}{Circle}. \end{DoxyCompactList}\item 
 void \hyperlink{class_circle_a73224ec141f6c58d1feff0a46a215b87}{move} (const int dx, const int dy)
 \begin{DoxyCompactList}\small\item\em Moves the circle at the specified amount. Assumes the specified amount is not outside the screen boundaries. \end{DoxyCompactList}\item 
 void \hyperlink{class_circle_ab02f952985bd988592c69409e2b5fe69}{scale} (const float factor)
@@ -166,6 +177,25 @@ Sets the border color of the circle.
 
 \begin{DoxyParams}{Parameters}
 {\em my\+Border\+Color} & The border color of the circle. Default is white. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_circle_a49e587e1199561b3dd30caa68219b845}{\index{Circle@{Circle}!set\+Centroid@{set\+Centroid}}
+\index{set\+Centroid@{set\+Centroid}!Circle@{Circle}}
+\subsubsection[{set\+Centroid}]{\setlength{\rightskip}{0pt plus 5cm}void Circle\+::set\+Centroid (
+\begin{DoxyParamCaption}
+\item[{const int}]{my\+X, }
+\item[{const int}]{my\+Y}
+\end{DoxyParamCaption}
+)}}\label{class_circle_a49e587e1199561b3dd30caa68219b845}
+
+
+Resets the centroid for the \hyperlink{class_circle}{Circle}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+X} & The new center x-\/coordinate for the \hyperlink{class_circle}{Circle}. \\
+\hline
+{\em my\+Y} & The new center y-\/coordinate for the \hyperlink{class_circle}{Circle}. \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_circle_ab5f942fd85063fbb4bfc28fc4e700eca}{\index{Circle@{Circle}!set\+Fill\+Color@{set\+Fill\+Color}}

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['fill',['fill',['../class_polygon.html#aaa6f282cafd882068fae7018741aabaf',1,'Polygon::fill()'],['../class_rectangle.html#a59d805919cfe95604336afb6e9d54f6f',1,'Rectangle::fill()'],['../class_circle.html#af69594749622c501d7a0c65715704e67',1,'Circle::fill()']]],
-  ['fillcolor',['fillColor',['../class_polygon.html#a8785a91a1462e4fd02cff574e51f3948',1,'Polygon']]]
+  ['erase',['erase',['../class_polygon.html#a1b7e1ed1a790c4e002b174373fd4a295',1,'Polygon::erase()'],['../class_rectangle.html#a9f94abb9cfdaa389559552bfd56850c2',1,'Rectangle::erase()'],['../class_circle.html#a9a42b8ca047d6b297b86ae5e3cbdcc53',1,'Circle::erase()']]]
 ];

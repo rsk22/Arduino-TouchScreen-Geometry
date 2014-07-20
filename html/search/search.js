@@ -7,10 +7,10 @@
 
 var indexSectionsWithContent =
 {
-  0: "bcdfgimprst~",
+  0: "bcdefgimprst~",
   1: "cprt",
   2: "t",
-  3: "cdfgimprst~",
+  3: "cdefgimprst~",
   4: "bfp",
   5: "m"
 };
