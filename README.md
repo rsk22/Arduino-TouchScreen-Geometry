@@ -4,15 +4,17 @@ Arduino-TouchScreen-Geometry
 Library for drawing geometric shapes (polygons, rectangles, triangles, circles) to the Seeed Studio TFT touch screen
 
 Introduction:
-This is a library created for the Arduino Uno and Seeed Studio TFT touch screen (Version 1).  The user can create geometric 
-shapes which include polygons, triangles, squares and circles.  See the example file for a tutorial on how to do this.
-The code documentation under the HTML folder also contains the code documentation as well.
+This is a library created for the Arduino Uno and Seeed Studio TFT touch screen (Version 1).  Here is a link to the touch screen hardware:
+
+http://www.seeedstudio.com/wiki/2.8''_TFT_Touch_Shield_V1.0
+
+The user can create geometric shapes which include polygons, triangles, squares and circles.  See the example file for a tutorial on how to do this. The code documentation under the HTML folder also contains the code documentation as well.
 
 Required Files:
 I assume you have all the necessary libraries to run basic programs on the Seeed Studio Touch Screen (i.e. TFT).  
 However, note that that the following custom libraries are required.  Search Github for my custom library.
 
-1. TouchScreen (A
+1. TouchScreen (Link: http://www.ladyada.net/library/arduino/libraries.html )
 
 Installation Instructions:
 1. Download the zipfile.
