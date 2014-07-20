@@ -25,7 +25,7 @@ I assume you have all the necessary libraries to run basic programs on the Seeed
 The code was thoroughly documented using DOxygen. Please see the HTML folder for detailed code documentation.
 
 ## Examples/Tutorials:
-In progress...
+See TouchScreenGeometry_example.ino
 
 ## Bugs:
 There are no known bugs at this time.  If you see any bugs, please contact me and I will do my best to resolve them.  
