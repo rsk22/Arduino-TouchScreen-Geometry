@@ -345,75 +345,154 @@ class Triangle : public Polygon {
 
 /*
 ----------------------------------------------------------------
-				  Circle Subclass
+				  Ellipse Class
+----------------------------------------------------------------
+*/
+class Ellipse {
+ public:
+    /*!
+    @brief Parameter constructor for the Ellipse class.
+    @param myCentroid  The coordinates of the Ellipse's center.
+    @param myWidth  The width of the Ellipse.
+    @param myHeight The height of the Ellipse.
+    @param myBorderColor The border color of the Ellipse.  Default is white.
+    @param myFillColor The fill color of the Ellipse.  Default is black.
+    */
+    Ellipse(const Point2D &myCentroid, const int myWidth, const int myHeight, const unsigned int myBorderColor = 0xffff, const unsigned int myFillColor = 0x0000);
+
+    /*!
+    @brief Parameter constructor for the Ellipse class.
+    @param myXStart     The x-coordinate of the Ellipse's center.
+    @param myYStart     The y-coordinate of the Ellipse's center.
+    @param myWidth  The width of the Ellipse.
+    @param myHeight The height of the Ellipse.
+    @param myBorderColor    The border color of the Ellipse.  Default is white.
+    @param myFillColor      The fill color of the Ellipse.  Default is black.
+    */
+    Ellipse(const int myXStart, const int myYStart, const int myWidth, const int myHeight, const unsigned int myBorderColor = 0xffff, const unsigned int myFillColor = 0x0000);
+
+    /*!
+    @brief Resets the centroid for the Ellipse
+    @param myX     The new center x-coordinate for the Ellipse.
+    @param myY     The new center y-coordinate for the Ellipse.
+    */
+    void setCentroid(const int myX, const int myY);
+
+    /*!
+    @brief Sets the width of the Ellipse.
+    @param myWidth  The width of the Ellipse.
+    */
+    void setWidth(const int myWidth);
+
+    /*!
+    @brief Sets the height of the Ellipse.
+    @param myHeight  The height of the Ellipse.
+    */
+    void setHeight(const int myHeight);
+
+    /*!
+    @brief Sets the border color of the Ellipse.
+    @param myBorderColor    The border color of the Ellipse.  Default is white.
+    */
+    void setBorderColor(unsigned int myBorderColor = 0xffff);
+
+    /*!
+    @brief Sets the fill color of the Ellipse.
+    @param  myFillColor     The fill color of the Ellipse. Default is black.
+    */
+    void setFillColor(unsigned int = 0x0000);
+
+    ///@brief Gets the x-coordinate of the Ellipse's center
+    const int getXCoord();
+
+    ///@brief Gets the y-coordinate of the Ellipse's center
+    const int getYCoord();
+
+    ///@brief Gets the border color of the Ellipse.
+    const unsigned int getBorderColor();
+
+    /*!
+    @brief Gets the fill color of the Ellipse.
+    @return Fill color of the Ellipse.
+    */
+    const unsigned int getFillColor();
+
+    ///@brief Uses the Seeed Studio TFT library to draw the Ellipse.
+    void draw();
+
+    ///@brief Uses the Seeed Studio TFT library to fill the Ellipse.
+    void fill();
+
+    ///@brief Erases the Ellipse
+    void erase();
+
+    /*!
+    @brief Moves the Ellipse at the specified amount.
+           Assumes the specified amount is not outside the screen boundaries.
+    @param dx   The amount in the +x-direction (left to right) to move the Ellipse.
+    @param dy   The amount in the +y-direction (up to down) to move the Ellipse.
+    */
+    void move(const int dx, const int dy);
+
+    /*!
+    @brief Resizes the Ellipse based on the factor.
+           Assumes the scaling factor is neither too small or too big.
+    @param factor   The amount the Ellipse is to be resized.
+    */
+    void scale(const float factor);
+
+ protected:
+    Point2D centroid; // The center of the Ellipse.
+    unsigned int borderColor;
+    unsigned int fillColor;
+
+ private:
+    ///@brief Gets the width of the Ellipse. Method is private to ensure subclasses do not inherit method.
+    const int getWidth();
+
+    ///@brief Gets the height of the Ellipse. Method is private to ensure subclasses do not inherit method.
+    const int getHeight();
+
+    int width, height; /// Members are private to ensure the Circle class does not have unneccesary dupliate values
+};
+
+/*
+----------------------------------------------------------------
+				  Circle Class
 ----------------------------------------------------------------
 */
 
 ///@class Circle
 ///@brief The class for drawing circles to the TFT touch screen.
-class Circle {
+class Circle : public Ellipse {
  public:
     /*!
     @brief Parameter constructor for the circle class.
-    @param  myCentroid  The coordinates of the circle's center.
-    @param  myRadius   The radius of the circle.
-    @param  myBorderColor The border color of the circle.  Default is white.
-    @param  myFillColor The fill color of the circle.  Default is black.
+    @param myCentroid  The coordinates of the circle's center.
+    @param myRadius   The radius of the circle.
+    @param myBorderColor    The border color of the circle.  Default is white.
+    @param myFillColor  The fill color of the circle.  Default is black.
     */
     Circle(const Point2D &myCentroid, const int myRadius, const unsigned int myBorderColor = 0xffff, const unsigned int myFillColor = 0x0000);
 
     /*!
     @brief Parameter constructor for the circle class.
-    @param  myXStart The x-coordinate of the circle's center.
-    @param  myYStart The y-coordinate of the circle's center.
-    @param  myRadius The radius of the circle.
-    @param  myBorderColor The border color of the circle.  Default is white.
-    @param  myFillColor The fill color of the circle.  Default is black.
+    @param myXStart     The x-coordinate of the circle's center.
+    @param myYStart     The y-coordinate of the circle's center.
+    @param myRadius     The radius of the circle.
+    @param myBorderColor    The border color of the circle.  Default is white.
+    @param myFillColor  The fill color of the circle.  Default is black.
     */
     Circle(const int myXStart, const int myYStart, const int myRadius, const unsigned int myBorderColor = 0xffff, const unsigned int myFillColor = 0x0000);
 
     /*!
-    @brief Resets the centroid for the Circle
-    @param myX     The new center x-coordinate for the Circle.
-    @param myY     The new center y-coordinate for the Circle.
-    */
-    void setCentroid(const int myX, const int myY);
-
-    /*!
     @brief Sets the radius of the circle.  Does NOT redraw the circle.
-    @param myRadius The radius of the circle.
+    @param myRadius     The radius of the circle.
     */
     void setRadius(const int myRadius);
 
-    /*!
-    @brief Sets the border color of the circle.
-    @param myBorderColor The border color of the circle.  Default is white.
-    */
-    void setBorderColor(unsigned int myBorderColor = 0xffff);
-
-    /*!
-    @brief Sets the fill color of the circle.
-    @param  myFillColor The fill color of the circle. Default is black.
-    */
-    void setFillColor(unsigned int = 0x0000);
-
-    ///@brief Gets the x-coordinate of the Circle's center
-    const int getXCoord();
-
-    ///@brief Gets the y-coordinate of the Circle's center
-    const int getYCoord();
-
     ///@brief Gets the radius of the circle.
     const int getRadius();
-
-    ///@brief Gets the border color of the circle.
-    const unsigned int getBorderColor();
-
-    /*!
-    @brief Gets the fill color of the circle.
-    @return Fill color of the circle.
-    */
-    const unsigned int getFillColor();
 
     ///@brief Uses the Seeed Studio TFT library to draw the circle.
     void draw();
@@ -427,23 +506,20 @@ class Circle {
     /*!
     @brief Moves the circle at the specified amount.
            Assumes the specified amount is not outside the screen boundaries.
-    @param  dx The amount in the +x-direction (left to right) to move the circle.
-    @param  dy The amount in the +y-direction (up to down) to move the circle.
+    @param dx   The amount in the +x-direction (left to right) to move the circle.
+    @param dy   The amount in the +y-direction (up to down) to move the circle.
     */
     void move(const int dx, const int dy);
 
     /*!
     @brief Resizes the circle based on the factor.
            Assumes the scaling factor is neither too small or too big.
-    @param  factor The amount the circle is to be resized.
+    @param factor   The amount the circle is to be resized.
     */
     void scale(const float factor);
 
  private:
-    Point2D centroid; // The center of the circle.
     int radius;
-    unsigned int borderColor;
-    unsigned int fillColor;
 };
 
 #endif
