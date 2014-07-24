@@ -431,15 +431,19 @@ class Ellipse {
            Assumes the specified amount is not outside the screen boundaries.
     @param dx   The amount in the +x-direction (left to right) to move the Ellipse.
     @param dy   The amount in the +y-direction (up to down) to move the Ellipse.
+    @param fillEllipse  Does not fill the Ellipse if set to false.  Otherwise, it fills.
+                        Note that filling any shapes result in performance decreases.
     */
-    void move(const int dx, const int dy);
+    void move(const int dx, const int dy, bool fillEllipse = false);
 
     /*!
     @brief Resizes the Ellipse based on the factor.
            Assumes the scaling factor is neither too small or too big.
     @param factor   The amount the Ellipse is to be resized.
+    @param fillEllipse  Does not fill the Ellipse if set to false.  Otherwise, it fills.
+                        Note that filling any shapes result in performance decreases.
     */
-    void scale(const float factor);
+    void scale(const float factor, bool fillEllipse = false);
 
  protected:
     Point2D centroid; // The center of the Ellipse.
@@ -508,15 +512,19 @@ class Circle : public Ellipse {
            Assumes the specified amount is not outside the screen boundaries.
     @param dx   The amount in the +x-direction (left to right) to move the circle.
     @param dy   The amount in the +y-direction (up to down) to move the circle.
+    @param fillCircle  Does not fill the Circle if set to false.  Otherwise, it fills.
+                        Note that filling any shapes result in performance decreases.
     */
-    void move(const int dx, const int dy);
+    void move(const int dx, const int dy, bool fillCircle = false);
 
     /*!
     @brief Resizes the circle based on the factor.
            Assumes the scaling factor is neither too small or too big.
     @param factor   The amount the circle is to be resized.
+    @param fillCircle  Does not fill the Circle if set to false.  Otherwise, it fills.
+                    Note that filling any shapes result in performance decreases.
     */
-    void scale(const float factor);
+    void scale(const float factor, bool fillCircle = false);
 
  private:
     int radius;

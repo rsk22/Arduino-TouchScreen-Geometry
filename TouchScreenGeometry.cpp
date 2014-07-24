@@ -312,14 +312,8 @@ void Rectangle::fill()
 
 void Rectangle::erase()
 {
-    unsigned int previousBorderColor = borderColor; // Saves the border color.
-    unsigned int previousFillColor = fillColor; // Saves the fill color
-    setBorderColor(0x0000); // Sets the border color to black.
-    setFillColor(0x0000); // Sets the fill color to black
-    draw(); // Erases the rectangle on the screen.
-    fill(); // Erases the rectangle on the screen
-    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
-    setFillColor(previousFillColor); // Sets the fill color back to its original state.
+    Tft.drawRectangle(getXStart(), getYStart(), getWidth(), getHeight(), 0x0000);
+    Tft.fillRectangle(getXStart(), getYStart(), getWidth(), getHeight(), 0x0000);
 }
 
 void Rectangle::move(const int dx, const int dy)
@@ -445,12 +439,11 @@ const unsigned int Ellipse::getFillColor()
 
 void Ellipse::draw()
 {
-    /// Source: http://stackoverflow.com/questions/10322341/simple-algorithm-for-drawing-filled-ellipse-in-c-c
-    for(int y = -height; y <= height; y++) {
-        for(int x = -width; x <= width; x++) {
-            if(x*x*height*height+y*y*width*width <= height*height*width*width)
-                Tft.drawCircle(centroid.getX() + x, centroid.getY() + y, 1, borderColor);
-        }
+    /// Source: http://www.mathopenref.com/coordparamellipse.html
+    for (float theta = 0; theta < 2 * PI; theta += 2 * PI / 100) {
+        int x = centroid.getX() + width * cos(theta);
+        int y = centroid.getY() + height * sin(theta);
+        Tft.drawCircle(x, y, 1, borderColor);
     }
 }
 
@@ -485,46 +478,40 @@ void Ellipse::fill()
 
 void Ellipse::erase()
 {
-    unsigned int previousBorderColor = borderColor; // Saves the border color.
-    unsigned int previousFillColor = fillColor; // Saves the fill color
-    setBorderColor(0x0000); // Sets the border color to black.
-    setFillColor(0x0000); // Sets the fill color to black
-    draw(); // Erases the rectangle on the screen.
-    fill(); // Erases the rectangle on the screen
-    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
-    setFillColor(previousFillColor); // Sets the fill color back to its original state.
+    Tft.drawCircle(centroid.getX(), centroid.getY(), max(width, height), 0x0000);
+    Tft.fillCircle(centroid.getX(), centroid.getY(), max(width, height), 0x0000);
 }
 
-void Ellipse::move(const int dx, const int dy)
+void Ellipse::move(const int dx, const int dy, bool fillEllipse)
 {
-    unsigned int previousBorderColor = borderColor; // Saves the border color.
-    unsigned int previousFillColor = fillColor; // Saves the fill color
-    setBorderColor(0x0000); // Sets the border color to black.
-    setFillColor(0x0000); // Sets the fill color to black
-    draw(); // Erases the Ellipse on the screen.
-    fill(); // Erases the Ellipse on the screen
-    centroid.setX(centroid.getX() + dx);
-    centroid.setY(centroid.getY() - dy);
-    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
-    setFillColor(previousFillColor); // Sets the fill color back to its original state.
-    draw(); // Redraws the Ellipse at its translated coordinates.
-    fill(); // Refills the Ellipse at its translated coordinates.
+    if (!fillEllipse) {
+        erase();
+        centroid.setX(centroid.getX() + dx);
+        centroid.setY(centroid.getY() - dy);
+        draw(); // Redraws the Ellipse at its translated coordinates.
+        fill(); // Refills the Ellipse at its translated coordinates.
+    } else {
+        erase();
+        centroid.setX(centroid.getX() + dx);
+        centroid.setY(centroid.getY() - dy);
+        draw(); // Redraws the Ellipse at its translated coordinates.
+    }
 }
 
-void Ellipse::scale(const float factor)
+void Ellipse::scale(const float factor, bool fillEllipse)
 {
-    unsigned int previousBorderColor = borderColor; // Saves the border color.
-    unsigned int previousFillColor = fillColor; // Saves the fill color
-    setBorderColor(0x0000); // Sets the border color to black.
-    setFillColor(0x0000); // Sets the fill color to black
-    fill(); // Erases the Ellipse on the screen
-    draw(); // Erases the Ellipse on the screen.
-    setWidth(int(factor * width));
-    setHeight(int(factor * height));
-    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
-    setFillColor(previousFillColor); // Sets the fill color back to its original state.
-    draw(); // Redraws the Ellipse at its translated coordinates.
-    fill(); // Refills the Ellipse at its translated coordinates.
+    if (!fillEllipse) {
+        erase();
+        setWidth(int(factor * width));
+        setHeight(int(factor * height));
+        draw(); // Redraws the Ellipse at its translated coordinates.
+        fill(); // Refills the Ellipse at its translated coordinates.
+    } else {
+        erase();
+        setWidth(int(factor * width));
+        setHeight(int(factor * height));
+        draw(); // Redraws the Ellipse at its translated coordinates.
+    }
 }
 
 /*
@@ -575,35 +562,35 @@ void Circle::erase()
     setFillColor(previousFillColor); // Sets the fill color back to its original state.
 }
 
-void Circle::move(const int dx, const int dy)
+void Circle::move(const int dx, const int dy, bool fillCircle)
 {
-    unsigned int previousBorderColor = borderColor; // Saves the border color.
-    unsigned int previousFillColor = fillColor; // Saves the fill color
-    setBorderColor(0x0000); // Sets the border color to black.
-    setFillColor(0x0000); // Sets the fill color to black
-    draw(); // Erases the circle on the screen.
-    fill(); // Erases the Circle on the screen
-    centroid.setX(centroid.getX() + dx);
-    centroid.setY(centroid.getY() - dy);
-    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
-    setFillColor(previousFillColor); // Sets the fill color back to its original state.
-    draw(); // Redraws the circle at its translated coordinates.
-    fill(); // Refills the Circle at its translated coordinates.
+    if (!fillCircle) {
+        erase();
+        centroid.setX(centroid.getX() + dx);
+        centroid.setY(centroid.getY() - dy);
+        draw(); // Redraws the circle at its translated coordinates.
+        fill(); // Refills the Circle at its translated coordinates.
+    } else {
+        erase();
+        centroid.setX(centroid.getX() + dx);
+        centroid.setY(centroid.getY() - dy);
+        draw(); // Redraws the circle at its translated coordinates.
+    }
 }
 
-void Circle::scale(const float factor)
+void Circle::scale(const float factor, bool fillCircle)
 {
-    unsigned int previousBorderColor = borderColor; // Saves the border color.
-    unsigned int previousFillColor = fillColor; // Saves the fill color
-    setBorderColor(0x0000); // Sets the border color to black.
-    setFillColor(0x0000); // Sets the fill color to black
-    fill(); // Erases the Circle on the screen
-    draw(); // Erases the Circle on the screen.
-    setRadius(int(factor * radius)); // Resizes the Circle.
-    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
-    setFillColor(previousFillColor); // Sets the fill color back to its original state.
-    draw(); // Redraws the Circle at its translated coordinates.
-    fill(); // Refills the Circle at its translated coordinates.
+    if (!fillCircle) {
+        erase();
+        setRadius(int(factor * radius)); // Resizes the Circle.
+        draw(); // Redraws the Circle at its translated coordinates.
+        fill(); // Refills the Circle at its translated coordinates.
+    } else {
+        erase();
+        setRadius(int(factor * radius)); // Resizes the Circle.
+        draw(); // Redraws the Circle at its translated coordinates.
+    }
+
 }
 
 
