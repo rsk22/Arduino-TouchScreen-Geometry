@@ -2,7 +2,7 @@
   Title: TouchScreenGeometry Tutorial
   About: Example/tutorial file for how to create geometric shapes with the TouchScreenGeometry library
   Author: Richard Kirkpatrick
-  Date: 20 July 2014
+  Date: 23 July 2014
 */
 
 // Libraries
@@ -48,10 +48,11 @@ void setup()
 
 void loop() 
 {
-  polygonExamples();
-  rectangleExamples();
-  circleExamples();
-  triangleExamples();
+  //polygonExamples();
+  //rectangleExamples();
+  //circleExamples();
+  ellipseExamples();
+  //triangleExamples();
   moveExamples();
 }
 
@@ -178,6 +179,29 @@ void circleExamples()
   eraseScreen();
 }
 
+
+void ellipseExamples() 
+{
+  int timeInterval =3000;
+  // Test Case 2 - Tests the Ellipse class
+  Ellipse e1(100, 100, 10, 30, WHITE, BLUE); // Parameter constructor
+  e1.draw(); // Draws Ellipse e1
+  delay(3000);
+  Ellipse e2 = e1; // Copy constructor
+  e2.setCentroid(50, 200); // Sets the center of the ellipse
+  e2.setBorderColor(RED); // Changed border color to red
+  e2.draw(); // Draws the ellipse
+  delay(3000);
+  e2.setHeight(60); // Sets the height to 60
+  e2.erase(); // Erases the ellipse
+  delay(1000);
+  e2.draw(); // Draws the ellipse
+  delay(3000);
+  //e2.setFillColor(GREEN); // Sets the fill color to green
+  //e2.fill(); // Fills the ellipse
+  eraseScreen();
+}
+
 void triangleExamples()
 {
   // Define the vertices for the triangle
@@ -200,15 +224,15 @@ void triangleExamples()
 void moveExamples() 
 {
   // Test Case 3 - Test the movements of shapes
-  Rectangle r1(20, 100, 40, 50, WHITE, BLUE); // Parameter constructor 
-  Circle c1(150, 100, 30, GREEN, GREEN); // Parameter constructor 
+  Rectangle r1(20, 100, 40, 50, WHITE); // Parameter constructor 
+  Circle c1(150, 100, 30, GREEN); // Parameter constructor 
   r1.draw();
   c1.draw();
   // Move the circle and rectangle down 2 pixels every 10 msec
   for(int y = 0; y < 20; y++) {
     r1.move(0, -1);
     c1.move(0, -1);
-    delay(10);
+    delay(1);
   }
   delay(1000);
   eraseScreen();
@@ -217,20 +241,20 @@ void moveExamples()
   for(int y = 0; y < 20; y++) {
       r1.move(0, 1);
       c1.move(0, 1);
-      delay(10);
+      delay(1);
   }
  delay(250);
  
  for(int y = 0; y < 40; y++) {
     r1.move(1, -1);
     c1.move(-1, -1); 
-    delay(10);
+    delay(1);
  }
  
  for(int y = 0; y < 40; y++) {
    r1.move(-1, 1);
    c1.move(1, 1);
-   delay(10);
+   delay(1);
  }
  
  eraseScreen();

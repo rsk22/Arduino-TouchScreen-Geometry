@@ -352,13 +352,13 @@ class Ellipse {
  public:
     /*!
     @brief Parameter constructor for the Ellipse class.
-    @param myCentroid  The coordinates of the Ellipse's center.
+    @param myCenter  The coordinates of the Ellipse's center.
     @param myWidth  The width of the Ellipse.
     @param myHeight The height of the Ellipse.
     @param myBorderColor The border color of the Ellipse.  Default is white.
     @param myFillColor The fill color of the Ellipse.  Default is black.
     */
-    Ellipse(const Point2D &myCentroid, const int myWidth, const int myHeight, const unsigned int myBorderColor = 0xffff, const unsigned int myFillColor = 0x0000);
+    Ellipse(const Point2D &myCenter, const int myWidth, const int myHeight, const unsigned int myBorderColor = 0xffff, const unsigned int myFillColor = 0x0000);
 
     /*!
     @brief Parameter constructor for the Ellipse class.
@@ -372,11 +372,11 @@ class Ellipse {
     Ellipse(const int myXStart, const int myYStart, const int myWidth, const int myHeight, const unsigned int myBorderColor = 0xffff, const unsigned int myFillColor = 0x0000);
 
     /*!
-    @brief Resets the centroid for the Ellipse
+    @brief Resets the center for the Ellipse
     @param myX     The new center x-coordinate for the Ellipse.
     @param myY     The new center y-coordinate for the Ellipse.
     */
-    void setCentroid(const int myX, const int myY);
+    void setcenter(const int myX, const int myY);
 
     /*!
     @brief Sets the width of the Ellipse.
@@ -446,7 +446,7 @@ class Ellipse {
     void scale(const float factor, bool fillEllipse = false);
 
  protected:
-    Point2D centroid; // The center of the Ellipse.
+    Point2D center; // The center of the Ellipse.
     unsigned int borderColor;
     unsigned int fillColor;
 
@@ -472,12 +472,12 @@ class Circle : public Ellipse {
  public:
     /*!
     @brief Parameter constructor for the circle class.
-    @param myCentroid  The coordinates of the circle's center.
+    @param myCenter  The coordinates of the circle's center.
     @param myRadius   The radius of the circle.
     @param myBorderColor    The border color of the circle.  Default is white.
     @param myFillColor  The fill color of the circle.  Default is black.
     */
-    Circle(const Point2D &myCentroid, const int myRadius, const unsigned int myBorderColor = 0xffff, const unsigned int myFillColor = 0x0000);
+    Circle(const Point2D &myCenter, const int myRadius, const unsigned int myBorderColor = 0xffff, const unsigned int myFillColor = 0x0000);
 
     /*!
     @brief Parameter constructor for the circle class.

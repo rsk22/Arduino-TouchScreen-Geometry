@@ -362,9 +362,9 @@ Triangle::Triangle(const Point2D &a, const Point2D &b, const Point2D &c, const u
 ----------------------------------------------------------------
 */
 
-Ellipse::Ellipse(const Point2D &myCentroid, const int myHeight, const int myWidth, const unsigned int myBorderColor, const unsigned int myFillColor)
+Ellipse::Ellipse(const Point2D &myCenter, const int myHeight, const int myWidth, const unsigned int myBorderColor, const unsigned int myFillColor)
 {
-    centroid = myCentroid;
+    centroid = myCenter;
     height = myHeight;
     width = myWidth;
     borderColor = myBorderColor;
@@ -458,7 +458,7 @@ void Ellipse::fill()
 
     // do the horizontal diameter
     for (int x = -width; x <= width; x++)
-        Tft.drawCircle(centroid.getX() + x, centroid.getY(), 1, borderColor);
+        Tft.drawCircle(center.getX() + x, center.getY(), 1, borderColor);
 
     // now do both halves at the same time, away from the diameter
     for (int y = 1; y <= height; y++){
@@ -470,30 +470,30 @@ void Ellipse::fill()
         x0 = x1;
 
         for (int x = -x0; x <= x0; x++){
-            Tft.drawCircle(centroid.getX() + x, centroid.getY() - y, 1, borderColor);
-            Tft.drawCircle(centroid.getX() + x, centroid.getY() + y, 1, borderColor);
+            Tft.drawCircle(center.getX() + x, center.getY() - y, 1, borderColor);
+            Tft.drawCircle(center.getX() + x, center.getY() + y, 1, borderColor);
         }
     }
 }
 
 void Ellipse::erase()
 {
-    Tft.drawCircle(centroid.getX(), centroid.getY(), max(width, height), 0x0000);
-    Tft.fillCircle(centroid.getX(), centroid.getY(), max(width, height), 0x0000);
+    Tft.drawCircle(center.getX(), center.getY(), max(width, height), 0x0000);
+    Tft.fillCircle(center.getX(), center.getY(), max(width, height), 0x0000);
 }
 
 void Ellipse::move(const int dx, const int dy, bool fillEllipse)
 {
     if (!fillEllipse) {
         erase();
-        centroid.setX(centroid.getX() + dx);
-        centroid.setY(centroid.getY() - dy);
+        center.setX(center.getX() + dx);
+        center.setY(center.getY() - dy);
         draw(); // Redraws the Ellipse at its translated coordinates.
         fill(); // Refills the Ellipse at its translated coordinates.
     } else {
         erase();
-        centroid.setX(centroid.getX() + dx);
-        centroid.setY(centroid.getY() - dy);
+        center.setX(center.getX() + dx);
+        center.setY(center.getY() - dy);
         draw(); // Redraws the Ellipse at its translated coordinates.
     }
 }
@@ -520,8 +520,8 @@ void Ellipse::scale(const float factor, bool fillEllipse)
 ----------------------------------------------------------------
 */
 
-Circle::Circle(const Point2D &myCentroid, const int myRadius, const unsigned int myBorderColor, const unsigned int myFillColor)
-    : Ellipse(myCentroid, myRadius, myRadius, myBorderColor, myFillColor)
+Circle::Circle(const Point2D &myCenter, const int myRadius, const unsigned int myBorderColor, const unsigned int myFillColor)
+    : Ellipse(myCenter, myRadius, myRadius, myBorderColor, myFillColor)
 {
 }
 
