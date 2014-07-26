@@ -381,7 +381,7 @@ Ellipse::Ellipse(const int myXStart, const int myYStart, const int myHeight, con
     fillColor = myFillColor;
 }
 
-void Ellipse::setcenter(const int myX, const int myY)
+void Ellipse::setCenter(const int myX, const int myY)
 {
     center.setX(myX);
     center.setY(myY);

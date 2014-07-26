@@ -48,11 +48,11 @@ void setup()
 
 void loop() 
 {
-  //polygonExamples();
-  //rectangleExamples();
-  //circleExamples();
+  polygonExamples();
+  rectangleExamples();
+  circleExamples();
   ellipseExamples();
-  //triangleExamples();
+  triangleExamples();
   moveExamples();
 }
 
@@ -150,7 +150,7 @@ void circleExamples()
   c1.fill(); // Erases the Circle
   delay(timeInterval);
   c1.setRadius(55); // Resizes the Circle
-  c1.setCentroid(100, 100); // Moves the circle's centroid to (100, 100)
+  c1.setCenter(100, 100); // Moves the circle's centroid to (100, 100)
   c1.setBorderColor(RED); 
   c1.setFillColor(YELLOW); 
   c1.draw();
@@ -188,7 +188,7 @@ void ellipseExamples()
   e1.draw(); // Draws Ellipse e1
   delay(3000);
   Ellipse e2 = e1; // Copy constructor
-  e2.setCentroid(50, 200); // Sets the center of the ellipse
+  e2.setCenter(50, 200); // Sets the center of the ellipse
   e2.setBorderColor(RED); // Changed border color to red
   e2.draw(); // Draws the ellipse
   delay(3000);
