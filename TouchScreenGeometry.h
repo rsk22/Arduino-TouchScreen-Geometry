@@ -383,13 +383,13 @@ class Ellipse {
     void setCenter(const int myX, const int myY);
 
     /*!
-    @brief Sets the width of the Ellipse.
+    @brief Sets the width of the Ellipse.  Method is private to ensure subclasses do not inherit method.
     @param myWidth  The width of the Ellipse.
     */
     void setWidth(const int myWidth);
 
     /*!
-    @brief Sets the height of the Ellipse.
+    @brief Sets the height of the Ellipse.  Method is private to ensure subclasses do not inherit method.
     @param myHeight  The height of the Ellipse.
     */
     void setHeight(const int myHeight);
@@ -411,6 +411,12 @@ class Ellipse {
 
     ///@brief Gets the y-coordinate of the Ellipse's center
     const int getYCoord();
+
+    ///@brief Gets the width of the Ellipse. Method is private to ensure subclasses do not inherit method.
+    const int getWidth();
+
+    ///@brief Gets the height of the Ellipse. Method is private to ensure subclasses do not inherit method.
+    const int getHeight();
 
     ///@brief Gets the border color of the Ellipse.
     const unsigned int getBorderColor();
@@ -455,12 +461,6 @@ class Ellipse {
     unsigned int fillColor;
 
  private:
-    ///@brief Gets the width of the Ellipse. Method is private to ensure subclasses do not inherit method.
-    const int getWidth();
-
-    ///@brief Gets the height of the Ellipse. Method is private to ensure subclasses do not inherit method.
-    const int getHeight();
-
     int width, height; /// Members are private to ensure the Circle class does not have unneccesary dupliate values
 };
 

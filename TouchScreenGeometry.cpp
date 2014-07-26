@@ -521,12 +521,12 @@ void Ellipse::scale(const float factor, bool fillEllipse)
 */
 
 Circle::Circle(const Point2D &myCenter, const int myRadius, const unsigned int myBorderColor, const unsigned int myFillColor)
-    : Ellipse(myCenter, myRadius, myRadius, myBorderColor, myFillColor)
+    : Ellipse(myCenter, myRadius, myRadius, myBorderColor, myFillColor), radius(myRadius)
 {
 }
 
 Circle::Circle(const int myXStart, const int myYStart, const int myRadius, const unsigned int myBorderColor, const unsigned int myFillColor)
-    : Ellipse(Point2D(myXStart, myYStart), myRadius, myRadius, myBorderColor, myFillColor)
+    : Ellipse(Point2D(myXStart, myYStart), myRadius, myRadius, myBorderColor, myFillColor), radius(myRadius)
 {
 }
 
