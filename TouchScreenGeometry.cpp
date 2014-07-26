@@ -552,8 +552,14 @@ void Circle::fill()
 
 void Circle::erase()
 {
-    Tft.drawCircle(centroid.getX(), centroid.getY(), radius, 0x0000);
-    Tft.fillCircle(centroid.getX(), centroid.getY(), radius - 1, 0x0000);
+    unsigned int previousBorderColor = borderColor; // Saves the border color.
+    unsigned int previousFillColor = fillColor; // Saves the fill color
+    setBorderColor(0x0000); // Sets the border color to black.
+    setFillColor(0x0000); // Sets the fill color to black
+    draw(); // Erases the rectangle on the screen.
+    fill(); // Erases the rectangle on the screen
+    setBorderColor(previousBorderColor); // Sets the border color back to its original state.
+    setFillColor(previousFillColor); // Sets the fill color back to its original state.
 }
 
 void Circle::move(const int dx, const int dy, bool fillCircle)
