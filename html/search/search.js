@@ -8,7 +8,7 @@
 var indexSectionsWithContent =
 {
   0: "bcdefgimprst~",
-  1: "cprt",
+  1: "ceprt",
   2: "t",
   3: "cdefgimprst~",
   4: "bfp",

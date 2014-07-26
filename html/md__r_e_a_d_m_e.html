@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Touch Screen Geometry Library: # Arduino-TouchScreen-Geometry</title>
+<title>Touch Screen Library: # Arduino-TouchScreen-Geometry</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Touch Screen Geometry Library
+   <div id="projectname">Touch Screen Library
    </div>
   </td>
  </tr>
@@ -84,9 +84,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><a href="http://www.seeedstudio.com/wiki/2.8''_TFT_Touch_Shield_V1.0">http://www.seeedstudio.com/wiki/2.8''_TFT_Touch_Shield_V1.0</a></p>
 <p>The user can create geometric shapes which include polygons, triangles, squares and circles. See the example file for a tutorial on how to do this. The code documentation under the HTML folder also contains the code documentation as well.</p>
 <h2>Required Files:</h2>
-<p>I assume you have all the necessary libraries to run basic programs on the Seeed Studio Touch Screen (i.e. TFT). However, note that that the following custom library is required.</p>
-<ol type="1">
-<li>TouchScreen (Link: <a href="http://www.ladyada.net/library/arduino/libraries.html">http://www.ladyada.net/library/arduino/libraries.html</a> )</li>
+<p>The TFT library comes with the standard Arduino library. However, you will also need the following library:</p><ol type="1">
+<li>TouchScreen library (Link: <a href="https://github.com/adafruit/Touch-Screen-Library">https://github.com/adafruit/Touch-Screen-Library</a> )</li>
 </ol>
 <h2>Installation Instructions:</h2>
 <ol type="1">
@@ -98,15 +97,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h2>Documentatation:</h2>
 <p>The code was thoroughly documented using DOxygen. Please see the HTML folder for detailed code documentation.</p>
 <h2>Examples/Tutorials:</h2>
-<p>In progress...</p>
+<p>See TouchScreenGeometry_example.ino</p>
 <h2>Bugs:</h2>
 <p>There are no known bugs at this time. If you see any bugs, please contact me and I will do my best to resolve them. You may also feel free to resolve them yourself. Just check with me before you submit any updates.</p>
 <h2>Upgrades:</h2>
-<p>We become better programmers by always looking for ways to improve our code. Thus, I will always look for ways to improve this code. If you have any suggestions for improvement or would like to make improvements yourself, please let me know. </p>
+<p>We become better programmers by always looking for ways to improve our code. Thus, I will always look for ways to improve this code. If you have any suggestions for improvement or would like to make improvements yourself, please let me know.</p>
+<p>Current planned upgrades are:</p><ol type="1">
+<li>Add rotation methods to <a class="el" href="class_polygon.html" title="Base class for drawing Polygon objects to the TFT touch screen. ">Polygon</a> class.</li>
+<li>Update move methods so that the movement appears more smoother.</li>
+<li>Add ellipse class.</li>
+<li>Add fill methods to all geometric classes (<a class="el" href="class_polygon.html" title="Base class for drawing Polygon objects to the TFT touch screen. ">Polygon</a>, <a class="el" href="class_triangle.html" title="Class for drawing Triangles to the TFT touch screen. ">Triangle</a>, etc.). </li>
+</ol>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jul 20 2014 13:17:28 for Touch Screen Geometry Library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 26 2014 12:22:05 for Touch Screen Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

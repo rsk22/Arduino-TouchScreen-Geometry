@@ -348,6 +348,10 @@ class Triangle : public Polygon {
 				  Ellipse Class
 ----------------------------------------------------------------
 */
+/*!
+@class Ellipse
+@brief Base class for drawing Ellipses to the touch screen
+*/
 class Ellipse {
  public:
     /*!
