@@ -376,7 +376,7 @@ class Ellipse {
     @param myX     The new center x-coordinate for the Ellipse.
     @param myY     The new center y-coordinate for the Ellipse.
     */
-    void setcenter(const int myX, const int myY);
+    void setCenter(const int myX, const int myY);
 
     /*!
     @brief Sets the width of the Ellipse.

@@ -364,7 +364,7 @@ Triangle::Triangle(const Point2D &a, const Point2D &b, const Point2D &c, const u
 
 Ellipse::Ellipse(const Point2D &myCenter, const int myHeight, const int myWidth, const unsigned int myBorderColor, const unsigned int myFillColor)
 {
-    centroid = myCenter;
+    center = myCenter;
     height = myHeight;
     width = myWidth;
     borderColor = myBorderColor;
@@ -373,18 +373,18 @@ Ellipse::Ellipse(const Point2D &myCenter, const int myHeight, const int myWidth,
 
 Ellipse::Ellipse(const int myXStart, const int myYStart, const int myHeight, const int myWidth, const unsigned int myBorderColor, const unsigned int myFillColor)
 {
-    centroid.setX(myXStart);
-    centroid.setY(myYStart);
+    center.setX(myXStart);
+    center.setY(myYStart);
     height = myHeight;
     width = myWidth;
     borderColor = myBorderColor;
     fillColor = myFillColor;
 }
 
-void Ellipse::setCentroid(const int myX, const int myY)
+void Ellipse::setcenter(const int myX, const int myY)
 {
-    centroid.setX(myX);
-    centroid.setY(myY);
+    center.setX(myX);
+    center.setY(myY);
 }
 
 void Ellipse::setWidth(const int myWidth)
@@ -399,12 +399,12 @@ void Ellipse::setHeight(const int myHeight)
 
 const int Ellipse::getXCoord()
 {
-    return centroid.getX();
+    return center.getX();
 }
 
 const int Ellipse::getYCoord()
 {
-    return centroid.getY();
+    return center.getY();
 }
 
 const int Ellipse::getHeight()
@@ -441,8 +441,8 @@ void Ellipse::draw()
 {
     /// Source: http://www.mathopenref.com/coordparamellipse.html
     for (float theta = 0; theta < 2 * PI; theta += 2 * PI / 100) {
-        int x = centroid.getX() + width * cos(theta);
-        int y = centroid.getY() + height * sin(theta);
+        int x = center.getX() + width * cos(theta);
+        int y = center.getY() + height * sin(theta);
         Tft.drawCircle(x, y, 1, borderColor);
     }
 }
@@ -542,32 +542,32 @@ const int Circle::getRadius()
 
 void Circle::draw()
 {
-    Tft.drawCircle(centroid.getX(), centroid.getY(), radius, borderColor);
+    Tft.drawCircle(center.getX(), center.getY(), radius, borderColor);
 }
 
 void Circle::fill()
 {
-    Tft.fillCircle(centroid.getX(), centroid.getY(), radius - 1, fillColor);
+    Tft.fillCircle(center.getX(), center.getY(), radius - 1, fillColor);
 }
 
 void Circle::erase()
 {
-    Tft.drawCircle(centroid.getX(), centroid.getY(), radius, 0x0000);
-    Tft.fillCircle(centroid.getX(), centroid.getY(), radius - 1, 0x0000);
+    Tft.drawCircle(center.getX(), center.getY(), radius, 0x0000);
+    Tft.fillCircle(center.getX(), center.getY(), radius - 1, 0x0000);
 }
 
 void Circle::move(const int dx, const int dy, bool fillCircle)
 {
     if (!fillCircle) {
         erase();
-        centroid.setX(centroid.getX() + dx);
-        centroid.setY(centroid.getY() - dy);
+        center.setX(center.getX() + dx);
+        center.setY(center.getY() - dy);
         draw(); // Redraws the circle at its translated coordinates.
         fill(); // Refills the Circle at its translated coordinates.
     } else {
         erase();
-        centroid.setX(centroid.getX() + dx);
-        centroid.setY(centroid.getY() - dy);
+        center.setX(center.getX() + dx);
+        center.setY(center.getY() - dy);
         draw(); // Redraws the circle at its translated coordinates.
     }
 }
