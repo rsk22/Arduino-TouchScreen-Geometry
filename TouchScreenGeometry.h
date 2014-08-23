@@ -297,7 +297,7 @@ class Rectangle : public Polygon {
     ///@brief Fills the Rectangle using the TFT library
     void fill();
 
-    ///@brief Erases the Circle
+    ///@brief Erases the Rectangle
     void erase();
 
     /*!
