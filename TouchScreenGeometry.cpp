@@ -242,36 +242,22 @@ Rectangle::Rectangle(Point2D &upperLeft, Point2D &lowerRight, const unsigned int
     : Polygon(updateVertices(upperLeft, Point2D(lowerRight.getX(), upperLeft.getY()), lowerRight, Point2D(upperLeft.getX(), lowerRight.getY())),
               4, myBorderColor, myFillColor)
 {
-	vertices[0] = upperLeft;
-	vertices[1] = Point2D(upperLeft.getX() + lowerRight.getX(), lowerRight.getY());
-	vertices[2] = lowerRight;
-	vertices[3] = Point2D(upperLeft.getX(), upperLeft.getY() + lowerRight.getY());
 }
 
 Rectangle::Rectangle(const int myXStart, const int myYStart, const int myWidth, const int myHeight, const unsigned int myBorderColor, const unsigned int myFillColor)
     : Polygon(updateVertices(Point2D(myXStart, myYStart), Point2D(myXStart + myWidth, myYStart), Point2D(myXStart + myWidth, myYStart + myHeight), Point2D(myXStart, myYStart + myHeight)),
               4,  myBorderColor, myFillColor)
 {
-	vertices[0] = Point2D(myXStart, myYStart);
-	vertices[1] = Point2D(myXStart + myWidth, myYStart);
-	vertices[2] = Point2D(myXStart + myWidth, myYStart + myHeight);
-	vertices[3] = Point2D(myXStart, myYStart + myHeight);
 }
 
 void Rectangle::setUpperLeft(const int myXStart, const int myYStart)
 {
     const int tempWidth = getWidth();
     const int tempHeight = getHeight();
-	/*
     points.setPoint(0, Point2D(myXStart, myYStart));
     points.setPoint(1, Point2D(myXStart + tempWidth, myYStart));
     points.setPoint(2, Point2D(myXStart + tempWidth, myYStart + tempHeight));
     points.setPoint(3, Point2D(myXStart, myYStart + tempHeight));
-	*/
-    vertices[0] = Point2D(myXStart, myYStart);
-    vertices[1] = Point2D(myXStart + tempWidth, myYStart);
-    vertices[2] = Point2D(myXStart + tempWidth, myYStart + tempHeight);
-    vertices[3] = Point2D(myXStart, myYStart + tempHeight);
 }
 
 void Rectangle::setValues(const int myXStart, const int myYStart, const int myWidth, const int myHeight)
@@ -284,39 +270,29 @@ void Rectangle::setSize(const int myWidth, const int myHeight)
 {
     int tempXStart = getXStart();
     int tempYStart = getYStart();
-	/*
     points.setPoint(1, Point2D(tempXStart + myWidth, tempYStart));
     points.setPoint(2, Point2D(tempXStart + myWidth, tempYStart + myHeight));
     points.setPoint(3, Point2D(tempXStart, tempYStart + myHeight));
-	*/
-	vertices[0] = Point2D(tempXStart, tempYStart);
-	vertices[1] = Point2D(tempXStart + myWidth, tempYStart);
-	vertices[2] = Point2D(tempXStart + myWidth, tempYStart + myHeight);
-	vertices[3] = Point2D(tempXStart, tempYStart + myHeight);
 }
 
 const int Rectangle::getXStart()
 {
-    //return points.get(0)->getX();
-	return vertices[0].getX();
+    return points.get(0)->getX();
 }
 
 const int Rectangle::getYStart()
 {
-    //return points.get(0)->getY();
-	return vertices[0].getY();
+    return points.get(0)->getY();
 }
 
 const int Rectangle::getXEnd()
 {
-    //return points.get(2)->getX();
-	return vertices[2].getX();
+    return points.get(2)->getX();
 }
 
 const int Rectangle::getYEnd()
 {
-    //return points.get(2)->getY();
-	return vertices[2].getY();
+    return points.get(2)->getY();
 }
 
 const int Rectangle::getWidth()
@@ -327,18 +303,6 @@ const int Rectangle::getWidth()
 const int Rectangle::getHeight()
 {
     return abs(getYEnd() - getYStart());
-}
-
-void Rectangle::draw()
-{
-    Tft.drawRectangle(getXStart(), getYStart(), getWidth(), getHeight(), borderColor);
-    /*
-     // Draw each segment of the polygon
-    for (int i = 0; i < 3; i++) {
-        Tft.drawLine(vertices[i].getX(), vertices[i].getY(), vertices[i+1].getX(), vertices[i+1].getY(), borderColor);
-    }
-    Tft.drawLine(vertices[3].getX(), vertices[3].getY(), vertices[0].getX(), vertices[0].getY(), borderColor);
-    */
 }
 
 void Rectangle::fill()

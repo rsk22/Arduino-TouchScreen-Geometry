@@ -294,13 +294,10 @@ class Rectangle : public Polygon {
     ///@brief Returns the height of the rectangle
     const int getHeight();
 
-    ///@brief Draws the Rectangle using the TFT library
-    void draw();
-
     ///@brief Fills the Rectangle using the TFT library
     void fill();
 
-    ///@brief Erases the Rectangle
+    ///@brief Erases the Circle
     void erase();
 
     /*!
@@ -324,9 +321,6 @@ class Rectangle : public Polygon {
     @param  factor The amount the rectangle is to be resized.
     */
     void scale(const float factor);
-
-private:
-	Point2D vertices[4];
 };
 
 /*
